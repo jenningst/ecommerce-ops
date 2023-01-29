@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Raw (large) data
+/data/*
+
+# Macintosh files
+*.DS_STORE

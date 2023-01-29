@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "ecommerce-ops"
+version = "0.1.0"
+description = "A project for learning data engineering and mlops."
+authors = ["Troy Jennings <troy.c.jennings@gmail.com>"]
+readme = "README.md"
+packages = [{include = "ecommerce_ops"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+orjson = "^3.8.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
