@@ -4,14 +4,17 @@ version = "0.1.0"
 description = "A project for learning data engineering and mlops."
 authors = ["Troy Jennings <troy.c.jennings@gmail.com>"]
 readme = "README.md"
-packages = [{include = "ecommerce_ops"}]
+packages = [{include = "ecommerce-ops"}]
 
 [tool.poetry.dependencies]
-python = "^3.10"
 feast = "^0.29.0"
-prefect = "^2.7.11"
-pytest = "^7.2.1"
+greenlet = "^2.0.2"
 polars = "^0.16.2"
+prefect = "^2.7.11"
+pydantic = "^1.10.4"
+pytest = "^7.2.1"
+python = "^3.10"
+python-dotenv = "^0.21.1"
 
 [tool.poetry.group.dev.dependencies]
 orjson = "^3.8.5"
