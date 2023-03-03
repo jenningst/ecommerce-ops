@@ -8,13 +8,15 @@ packages = [{include = "ecommerce-ops"}]
 
 [tool.poetry.dependencies]
 feast = "^0.29.0"
-greenlet = "^2.0.2"
 polars = "^0.16.2"
+pre-commit = "^3.1.1"
 prefect = "^2.7.11"
 pydantic = "^1.10.4"
 pytest = "^7.2.1"
-python = "^3.10"
+python = "^3.9.13"
 python-dotenv = "^0.21.1"
+spacy = "^3.5.0"
+greenlet = "^2.0.2"
 
 [tool.poetry.group.dev.dependencies]
 orjson = "^3.8.5"

@@ -65,12 +65,12 @@ def write_data_by_timestamp(
 # define flow and subflows
 @flow(
 	name="Split data",
-	description="Flow to handle data pre-processing"
+	description="Flow to handle data pre-processing."
 )
 def split_data(
 	source_input_path: str,
 	processed_output_path: str
-):
+) -> None:
 	aggregated_data = aggregate_data_by_timestamp(
 		source_input_path=source_input_path
 	)
