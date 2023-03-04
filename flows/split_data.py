@@ -3,24 +3,21 @@ import json
 import os
 
 from collections import defaultdict
-from typing import Dict, List, TypedDict
+from typing import Dict, List
 
 from dotenv import load_dotenv
 from prefect import flow, task
 
-from models import ReviewData
+from models.data_models import ReviewData
 
 load_dotenv(override=True)
 
 
-# define flow tasks
 @task(
 	name="Aggregate data by timestamp",
 	description="Aggregates reviews by their unix timestamp."
 )
-def aggregate_data_by_timestamp(
-	source_input_path: str
-) -> Dict[str, List[ReviewData]]:
+def aggregate_data_by_timestamp(source_input_path: str) -> Dict[str, List[ReviewData]]:
 	"""
 	Parameters
 	----------
@@ -44,10 +41,7 @@ def aggregate_data_by_timestamp(
 	name="Write data by timestamp",
 	description="Writes individual json output for each timestamp."
 )
-def write_data_by_timestamp(
-	data: Dict[str, List[ReviewData]],
-	processed_output_path: str
-) -> None:
+def write_data_by_timestamp(data: Dict[str, List[ReviewData]], processed_output_path: str) -> None:
 	"""
 	Parameters
 	----------
@@ -62,15 +56,11 @@ def write_data_by_timestamp(
 			f_out.write(json.dumps(value))
 
 
-# define flow and subflows
 @flow(
 	name="Split data",
 	description="Flow to handle data pre-processing."
 )
-def split_data(
-	source_input_path: str,
-	processed_output_path: str
-) -> None:
+def split_data(source_input_path: str, processed_output_path: str) -> None:
 	aggregated_data = aggregate_data_by_timestamp(
 		source_input_path=source_input_path
 	)
